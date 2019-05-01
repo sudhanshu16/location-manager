@@ -1,0 +1,24 @@
+<div class="location-grid">
+  <mat-spinner diameter="30" *ngIf="!loaded" style="position:absolute; left: 50%;"></mat-spinner>
+  <mat-grid-list cols="3" rowHeight="2:1" style="height: 100%;" *ngIf="loaded">
+    <mat-grid-tile *ngFor="let l of locations | searchfilter: searchService.searchText">
+      <mat-card class="location-card">
+        <mat-card-content>
+          <mat-card-title>{{l.name}}</mat-card-title>
+          <mat-card-subtitle>{{l.city}}</mat-card-subtitle>
+          <p>
+            {{l.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions *ngIf="authService.user$ | async">
+          <button mat-icon-button (click)="editLocation(l)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteLocation(l.uid)" style="opacity: 0.3;">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

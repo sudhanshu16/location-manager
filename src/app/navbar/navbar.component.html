@@ -1,0 +1,31 @@
+<div class="navbar">
+  <div class="logo">
+    <img src="/assets/zolo-header.png" alt="">
+  </div>
+  <div class="search">
+    <mat-form-field class="search-bar">
+      <label>
+        <input [(ngModel)]="searchService.searchText" matInput placeholder="Search" autocomplete="off">
+      </label>
+      <mat-icon matSuffix [matTooltip]="'Click Search or Press Enter'">search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="admin">
+    <div *ngIf="authService.user$ | async; then authenticated else guest">
+      <!-- template will replace this div -->
+    </div>
+  </div>
+</div>
+
+<ng-template #guest>
+  <button mat-raised-button color="primary" (click)="authService.googleSignin()">Admin Sign In</button>
+</ng-template>
+<ng-template #authenticated>
+  <button mat-raised-button color="primary" (click)="addLocationDialog()">
+    <mat-icon aria-label="icon-button">add</mat-icon>
+    Add Location
+  </button>
+  <button mat-icon-button (click)="authService.signOut()" [matTooltip]="'Logout'">
+    <mat-icon aria-label="icon-button">exit_to_app</mat-icon>
+  </button>
+</ng-template>

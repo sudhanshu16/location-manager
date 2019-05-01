@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.search-bar .mat-form-field-underline {
+  display: none;
+}
+
+.search-bar input {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.search-bar .mat-form-field-label {
+  padding: 10px 15px;
+  transition: .3s;
+}
+
+.search-bar.mat-focused .mat-form-field-label {
+  padding: 8px;
+}
+
+
+.search-bar .mat-form-field-suffix {
+  top: -2px;
+  cursor: pointer;
+}
+
+.search-bar .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.search-bar .mat-form-field-infix {
+  border-top: 0;
+}
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>{{data.uid === "null" ? 'Add' : 'Edit'}} Location</h1>
+<div mat-dialog-content class="edit-location-dialog">
+  <p>What's your favorite animal?</p>
+  <mat-form-field class="full-sized-input">
+    <label>
+      <input matInput [(ngModel)]="data.name" placeholder="Name">
+    </label>
+  </mat-form-field>
+  <mat-form-field class="full-sized-input">
+    <label>
+      <input matInput [(ngModel)]="data.city" placeholder="City">
+    </label>
+  </mat-form-field>
+  <mat-form-field class="full-sized-input">
+    <label>
+      <input matInput [(ngModel)]="data.locality" placeholder="Locality">
+    </label>
+  </mat-form-field>
+  <mat-form-field class="full-sized-input">
+    <label>
+      <input matInput [(ngModel)]="data.google_map_location" placeholder="Google Maps Location">
+    </label>
+  </mat-form-field>
+  <mat-form-field class="full-sized-input">
+    <label>
+      <input matInput [(ngModel)]="data.landmark1" placeholder="Landmark 1">
+    </label>
+  </mat-form-field>
+  <mat-form-field class="full-sized-input">
+    <label>
+      <input matInput [(ngModel)]="data.landmark2" placeholder="Landmark 2">
+    </label>
+  </mat-form-field>
+  <mat-form-field class="full-sized-input">
+    <label>
+      <textarea [(ngModel)]="data.description" matInput placeholder="Description"></textarea>
+    </label>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <div *ngIf="working">
+    <mat-spinner diameter="20"></mat-spinner>
+  </div>
+  <div *ngIf="!working">
+    <button mat-raised-button color="primary" (click)="onSaveClick()">Save</button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+  </div>
+</div>

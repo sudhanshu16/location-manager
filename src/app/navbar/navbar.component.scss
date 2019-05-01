@@ -1,0 +1,28 @@
+.navbar {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  position: relative;
+}
+
+.navbar > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar .logo img {
+  height: 40px;
+  margin-right: 60px;
+}
+
+.navbar .search-bar {
+  width: 400px;
+}
+
+
+.admin {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
